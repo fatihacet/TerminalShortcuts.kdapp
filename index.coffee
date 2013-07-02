@@ -65,7 +65,9 @@ class MainView extends JView
         """
         {{> @header}}
         <br>
-        You can use the following common shortcuts. <i>For each shortcut you need root access.</i>
+        You can use the following common shortcuts. For suggestions you can PM <a href="/stefanbc">@stefanbc</a>.
+        <br>
+        <i class="notification">Each shortcut needs root access.</i>
         <br><br>
         <div class="content-wrapper">
             <div class="left">
@@ -83,7 +85,9 @@ class MainView extends JView
                 <div class="clear_button">
                     {{> @button_clear}}
                 </div>
-                {{> @terminal}}
+                <div class="terminal-wrapper">
+                    {{> @terminal}}
+                </div>
             </div>
         </div>
         """

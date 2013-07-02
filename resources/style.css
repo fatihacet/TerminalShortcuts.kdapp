@@ -1,5 +1,4 @@
-
-/* Your awesome Koding App CSS Code */
+/* # Terminal Shortcuts app css */
 
 .wrapper  {
   margin: 10px;
@@ -19,6 +18,11 @@
     display: block
 }
 
+.wrapper .notification {
+    color: #1454BA;
+    font-weight: bold;
+}
+
 .wrapper .content-wrapper .left,
 .wrapper .content-wrapper .right {
     float: left;
@@ -36,4 +40,8 @@
     overflow: hidden;
     margin: 10px 0;
     text-align: right;
+}
+
+.wrapper .content-wrapper .right .terminal-wrapper {
+    height: 90%;
 }

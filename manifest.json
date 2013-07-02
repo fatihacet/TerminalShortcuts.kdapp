@@ -1,21 +1,20 @@
 {
-  "devMode": true,
+  "devMode": false,
   "authorNick": "stefanbc",
   "multiple": false,
   "background": false,
   "hiddenHandle": false,
-  "forceUpdate": false,
   "openWith": "lastActive",
   "behavior": "application",
   "version": "0.1",
   "name": "TerminalShortcuts",
   "identifier": "com.koding.apps.terminalshortcuts",
   "path": "~/Applications/TerminalShortcuts.kdapp",
-  "homepage": "stefanbc.kd.io/terminalshortcuts",
+  "homepage": "https://github.com/stefanbc/TerminalShortcuts.kdapp",
   "author": "Stefan Cosma",
-  "repository": "git://github.com/stefanbc/terminalshortcuts.kdapp.git",
-  "description": "TerminalShortcuts : a Koding application created with the blank template.",
-  "category": "web-app",
+  "repository": "git://github.com/stefanbc/TerminalShortcuts.kdapp.git",
+  "description": "TerminalShortcuts : a Koding application for commonly used Terminal shortcuts.",
+  "category": "miscellaneous",
   "source": {
     "blocks": {
       "app": {
@@ -34,6 +33,5 @@
   "icns": {
     "128": "./resources/icon.128.png"
   },
-  "menu": [],
-  "fileTypes": []
+  "menu": []
 }

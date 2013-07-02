@@ -46,6 +46,12 @@ class MainView extends JView
                 command = "sudo apt-get install sendmail; sudo sendmailconfig"
                 @runCommand command
                 
+        @button_clear = new KDButtonView
+            title       : "Clear Terminal"
+            callback    : =>
+                command = "clear"
+                @runCommand command 
+                
     runCommand: (command) ->
         return unless command 
         return @remote.input "#{command}\n" if @remote
@@ -59,7 +65,7 @@ class MainView extends JView
         """
         {{> @header}}
         <br>
-        You can use the following common shortcuts.
+        You can use the following common shortcuts. <i>For each shortcut you need root access.</i>
         <br><br>
         <div class="content-wrapper">
             <div class="left">
@@ -74,6 +80,9 @@ class MainView extends JView
                 {{> @button_4}}
             </div>
             <div class="right">
+                <div class="clear_button">
+                    {{> @button_clear}}
+                </div>
                 {{> @terminal}}
             </div>
         </div>

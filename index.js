@@ -1,4 +1,4 @@
-/* Compiled by kdc on Tue Jul 02 2013 07:56:12 GMT+0000 (UTC) */
+/* Compiled by kdc on Tue Jul 02 2013 08:29:27 GMT+0000 (UTC) */
 (function() {
 /* KDAPP STARTS */
 /* BLOCK STARTS: /home/stefanbc/Applications/TerminalShortcuts.kdapp/index.coffee */
@@ -66,6 +66,14 @@ MainView = (function(_super) {
         return _this.runCommand(command);
       }
     });
+    this.button_clear = new KDButtonView({
+      title: "Clear Terminal",
+      callback: function() {
+        var command;
+        command = "clear";
+        return _this.runCommand(command);
+      }
+    });
   }
 
   MainView.prototype.runCommand = function(command) {
@@ -85,7 +93,7 @@ MainView = (function(_super) {
   };
 
   MainView.prototype.pistachio = function() {
-    return "{{> this.header}}\n<br>\nYou can use the following common shortcuts.\n<br><br>\n<div class=\"content-wrapper\">\n    <div class=\"left\">\n        {{> this.subtitle_1}}\n        <br><br>\n        {{> this.button_1}}\n        {{> this.button_2}}\n        {{> this.button_3}}\n        <br><br>\n        {{> this.subtitle_2}}\n        <br><br>\n        {{> this.button_4}}\n    </div>\n    <div class=\"right\">\n        {{> this.terminal}}\n    </div>\n</div>";
+    return "{{> this.header}}\n<br>\nYou can use the following common shortcuts. <i>For each shortcut you need root access.</i>\n<br><br>\n<div class=\"content-wrapper\">\n    <div class=\"left\">\n        {{> this.subtitle_1}}\n        <br><br>\n        {{> this.button_1}}\n        {{> this.button_2}}\n        {{> this.button_3}}\n        <br><br>\n        {{> this.subtitle_2}}\n        <br><br>\n        {{> this.button_4}}\n    </div>\n    <div class=\"right\">\n        <div class=\"clear_button\">\n            {{> this.button_clear}}\n        </div>\n        {{> this.terminal}}\n    </div>\n</div>";
   };
 
   MainView.prototype.viewAppended = function() {

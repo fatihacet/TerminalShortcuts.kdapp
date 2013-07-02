@@ -25,17 +25,6 @@ class MainView extends JView
             
         @terminal.on "WebTermConnected", (@remote) =>
             @runCommand command if command
-        
-        @tabs = new KDTabView
-            hideHandleCloseIcons : yes
-            hideHandleContainer  : yes
-            cssClass             : "button-tabs"
-
-        @tabs.addPane dashboard
-            cssClass : "dashboard"
-            name     : "dashboard"
-
-        @tabs.showPane dashboard
 
         @button_1 = new KDButtonView
             title      : "Restart Apache Server"
@@ -107,7 +96,6 @@ class MainView extends JView
                 <div class="spacer">
                     <i class="notification">Each shortcut needs root access.</i>
                 </div>
-                {{> @tabs}}
                 {{> @subtitle_1}}
                 <br><br>
                 {{> @button_1}}

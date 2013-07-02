@@ -21,7 +21,6 @@ class MainView extends JView
             
         @terminal.on "WebTermConnected", (@remote) =>
             @runCommand command if command
-            @setActive() 
           
         @button_1 = new KDButtonView
             title      : "Apache Error Log"
@@ -58,9 +57,8 @@ class MainView extends JView
                     width   : 800
                     cssClass: "console-wrapper"
                     terminal: command: inputcommand
-    
+          
     runCommand: (command) ->
-        @setActive()
         return unless command 
         return @remote.input "#{command}\n" if @remote
         

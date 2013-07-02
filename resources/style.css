@@ -15,33 +15,36 @@
 }
 
 .wrapper .content-wrapper {
-    display: block
+  display: block
 }
 
 .wrapper .notification {
-    color: #1454BA;
-    font-weight: bold;
+  color: #ff0000;
+}
+
+.wrapper .spacer {
+  margin: 5px 0;
 }
 
 .wrapper .content-wrapper .left,
 .wrapper .content-wrapper .right {
-    float: left;
-    width: 45%;
-    height: 450px;
-    display: block;
-    overflow: hidden;
+  float: left;
+  width: 45%;
+  height: 450px;
+  display: block;
+  overflow: hidden;
 }
 .wrapper .content-wrapper .right {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .wrapper .content-wrapper .right .clear_button {
-    display: block;
-    overflow: hidden;
-    margin: 10px 0;
-    text-align: right;
+  display: block;
+  overflow: hidden;
+  margin: 10px 0;
+  text-align: right;
 }
 
 .wrapper .content-wrapper .right .terminal-wrapper {
-    height: 90%;
+  height: 90%;
 }

@@ -1,5 +1,5 @@
 {
-  "devMode": false,
+  "devMode": true,
   "authorNick": "stefanbc",
   "multiple": false,
   "background": false,

@@ -24,40 +24,28 @@ class MainView extends JView
           
         @button_1 = new KDButtonView
             title      : "Apache Error Log"
-            callback   : ->
+            callback   : =>
                 command = "sudo tail -f /var/log/apache2/error.log"
-                @terminal.runCommand command
+                @runCommand command
                 
         @button_2 = new KDButtonView
             title      : "Edit Apache Config"
-            callback   : ->
-                inputcommand = "sudo nano /etc/apache2/sites-enabled/default"
-                new ModalViewWithTerminal
-                    title   : "Edit Apache Config"
-                    width   : 800
-                    cssClass: "console-wrapper"
-                    terminal: command: inputcommand
+            callback   : =>
+                command = "sudo nano /etc/apache2/sites-enabled/default"
+                @runCommand command
         
         @button_3 = new KDButtonView
             title      : "Enable mod_rewrite"
-            callback   : ->
-                inputcommand = "sudo a2enmod rewrite"
-                new ModalViewWithTerminal
-                    title   : "Enable mod_rewrite"
-                    width   : 800
-                    cssClass: "console-wrapper"
-                    terminal: command: inputcommand
+            callback   : =>
+                command = "sudo a2enmod rewrite"
+                @runCommand command
     
         @button_4 = new KDButtonView
             title       : "Enable mail() function"
-            callback    : ->
-                inputcommand = "sudo apt-get install sendmail; sudo sendmailconfig"
-                new ModalViewWithTerminal
-                    title   : "Enable mail() function"
-                    width   : 800
-                    cssClass: "console-wrapper"
-                    terminal: command: inputcommand
-          
+            callback    : =>
+                command = "sudo apt-get install sendmail; sudo sendmailconfig"
+                @runCommand command
+                
     runCommand: (command) ->
         return unless command 
         return @remote.input "#{command}\n" if @remote

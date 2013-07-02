@@ -15,6 +15,10 @@ class MainView extends JView
             type: "medium"
             title: "PHP"
         
+        @subtitle_3 = new KDHeaderView
+            type: "medium"
+            title: "Misc"
+        
         @terminal = new WebTermView
             delegate : @
             cssClass : "webterm"
@@ -45,6 +49,12 @@ class MainView extends JView
             callback    : =>
                 command = "sudo apt-get install sendmail; sudo sendmailconfig"
                 @runCommand command
+        
+        @button_5 = new KDButtonView
+            title       : "Check Syslog"
+            callback    : =>
+                command = "sudo tail -f /var/log/syslog"
+                @runCommand command
                 
         @button_clear = new KDButtonView
             title       : "Clear Terminal"
@@ -66,7 +76,7 @@ class MainView extends JView
         {{> @header}}
         <br>
         You can use the following common shortcuts. For suggestions you can PM <a href="/stefanbc">@stefanbc</a>.
-        <br>
+        <br><br>
         <i class="notification">Each shortcut needs root access.</i>
         <br><br>
         <div class="content-wrapper">
@@ -80,6 +90,10 @@ class MainView extends JView
                 {{> @subtitle_2}}
                 <br><br>
                 {{> @button_4}}
+                <br><br>
+                {{> @subtitle_3}}
+                <br><br>
+                {{> @button_5}}
             </div>
             <div class="right">
                 <div class="clear_button">

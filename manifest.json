@@ -1,0 +1,39 @@
+{
+  "devMode": true,
+  "authorNick": "stefanbc",
+  "multiple": false,
+  "background": false,
+  "hiddenHandle": false,
+  "forceUpdate": false,
+  "openWith": "lastActive",
+  "behavior": "application",
+  "version": "0.1",
+  "name": "TerminalShortcuts",
+  "identifier": "com.koding.apps.terminalshortcuts",
+  "path": "~/Applications/TerminalShortcuts.kdapp",
+  "homepage": "stefanbc.kd.io/terminalshortcuts",
+  "author": "Stefan Cosma",
+  "repository": "git://github.com/stefanbc/terminalshortcuts.kdapp.git",
+  "description": "TerminalShortcuts : a Koding application created with the blank template.",
+  "category": "web-app",
+  "source": {
+    "blocks": {
+      "app": {
+        "files": [
+          "./index.coffee"
+        ]
+      }
+    },
+    "stylesheets": [
+      "./resources/style.css"
+    ]
+  },
+  "options": {
+    "type": "tab"
+  },
+  "icns": {
+    "128": "./resources/icon.128.png"
+  },
+  "menu": [],
+  "fileTypes": []
+}

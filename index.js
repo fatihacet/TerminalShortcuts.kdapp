@@ -1,4 +1,4 @@
-/* Compiled by kdc on Tue Jul 02 2013 11:02:03 GMT+0000 (UTC) */
+/* Compiled by kdc on Fri Jul 05 2013 05:56:53 GMT+0000 (UTC) */
 (function() {
 /* KDAPP STARTS */
 /* BLOCK STARTS: /home/stefanbc/Applications/TerminalShortcuts.kdapp/index.coffee */
@@ -39,6 +39,14 @@ MainView = (function(_super) {
       }
     });
     this.button_1 = new KDButtonView({
+      title: "Restart Apache Server",
+      callback: function() {
+        var command;
+        command = "sudo service apache2 restart";
+        return _this.runCommand(command);
+      }
+    });
+    this.button_2 = new KDButtonView({
       title: "Apache Error Log",
       callback: function() {
         var command;
@@ -46,7 +54,7 @@ MainView = (function(_super) {
         return _this.runCommand(command);
       }
     });
-    this.button_2 = new KDButtonView({
+    this.button_3 = new KDButtonView({
       title: "Edit Apache Config",
       callback: function() {
         var command;
@@ -54,7 +62,7 @@ MainView = (function(_super) {
         return _this.runCommand(command);
       }
     });
-    this.button_3 = new KDButtonView({
+    this.button_4 = new KDButtonView({
       title: "Enable mod_rewrite",
       callback: function() {
         var command;
@@ -62,7 +70,7 @@ MainView = (function(_super) {
         return _this.runCommand(command);
       }
     });
-    this.button_4 = new KDButtonView({
+    this.button_5 = new KDButtonView({
       title: "Enable mail() function",
       callback: function() {
         var command;
@@ -70,7 +78,7 @@ MainView = (function(_super) {
         return _this.runCommand(command);
       }
     });
-    this.button_5 = new KDButtonView({
+    this.button_6 = new KDButtonView({
       title: "Check Syslog",
       callback: function() {
         var command;
@@ -105,7 +113,7 @@ MainView = (function(_super) {
   };
 
   MainView.prototype.pistachio = function() {
-    return "{{> this.header}}\n<br>\nYou can use the following common shortcuts. For suggestions you can PM <a href=\"/stefanbc\">@stefanbc</a>.\n<br><br>\n<i class=\"notification\">Each shortcut needs root access.</i>\n<br><br>\n<div class=\"content-wrapper\">\n    <div class=\"left\">\n        {{> this.subtitle_1}}\n        <br><br>\n        {{> this.button_1}}\n        {{> this.button_2}}\n        {{> this.button_3}}\n        <br><br>\n        {{> this.subtitle_2}}\n        <br><br>\n        {{> this.button_4}}\n        <br><br>\n        {{> this.subtitle_3}}\n        <br><br>\n        {{> this.button_5}}\n    </div>\n    <div class=\"right\">\n        <div class=\"clear_button\">\n            {{> this.button_clear}}\n        </div>\n        <div class=\"terminal-wrapper\">\n            {{> this.terminal}}\n        </div>\n    </div>\n</div>";
+    return "{{> this.header}}\n<div class=\"spacer\">\n    You can use the following common shortcuts. For suggestions and bug reports you can PM <a href=\"/stefanbc\">@stefanbc</a> or open up an issue on <a href=\"https://github.com/stefanbc/TerminalShortcuts.kdapp/issues\" target=\"_blank\">Github</a>.\n</div>\n<div class=\"content-wrapper\">\n    <div class=\"left\">\n        <div class=\"spacer\">\n            <i class=\"notification\">Each shortcut needs root access.</i>\n        </div>\n        {{> this.subtitle_1}}\n        <br><br>\n        {{> this.button_1}}\n        {{> this.button_2}}\n        {{> this.button_3}}\n        <br><br>\n        {{> this.button_4}}\n        <br><br>\n        {{> this.subtitle_2}}\n        <br><br>\n        {{> this.button_5}}\n        <br><br>\n        {{> this.subtitle_3}}\n        <br><br>\n        {{> this.button_6}}\n    </div>\n    <div class=\"right\">\n        <div class=\"clear_button\">\n            {{> this.button_clear}}\n        </div>\n        <div class=\"terminal-wrapper\">\n            {{> this.terminal}}\n        </div>\n    </div>\n</div>";
   };
 
   MainView.prototype.viewAppended = function() {

@@ -62,13 +62,13 @@ class MainView extends JView
                 command = "sudo tail -f /var/log/syslog"
                 @runCommand command
         
-        @button_large = new KDOnOffSwitch
-            defaultValue  : off
-            title         : "Full with terminal"
-            size          : "medium"
-            cssClass      : "terminal-switch"
-            # callback      : (state) ->
-                # if state                
+        #@button_large = new KDOnOffSwitch
+            #defaultValue  : off
+            #title         : "Full with terminal"
+            #size          : "medium"
+            #cssClass      : "terminal-switch"
+             #callback      : (state) ->
+                 #if state                
 
         @button_clear = new KDButtonView
             title       : "Clear Terminal"
@@ -102,17 +102,19 @@ class MainView extends JView
                 {{> @button_2}}
                 {{> @button_3}}
                 <br><br>
+                {{> @button_4}}
+                <br><br>
                 {{> @subtitle_2}}
                 <br><br>
-                {{> @button_4}}
+                {{> @button_5}}
                 <br><br>
                 {{> @subtitle_3}}
                 <br><br>
-                {{> @button_5}}
+                {{> @button_6}}
             </div>
             <div class="right">
                 <div class="clear_button">
-                    {{> @button_large}} {{> @button_clear}}
+                    {{> @button_clear}}
                 </div>
                 <div class="terminal-wrapper">
                     {{> @terminal}}

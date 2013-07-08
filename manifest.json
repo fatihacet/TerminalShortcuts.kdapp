@@ -4,6 +4,7 @@
   "multiple": false,
   "background": false,
   "hiddenHandle": false,
+  "forceUpdate": false,
   "openWith": "lastActive",
   "behavior": "application",
   "version": "0.1",
@@ -33,5 +34,6 @@
   "icns": {
     "128": "./resources/icon.128.png"
   },
-  "menu": []
+  "menu": [],
+  "fileTypes": []
 }

@@ -24,6 +24,7 @@
 .wrapper .content-wrapper {
     display: block;
     margin: 15px;
+    overflow: hidden;
 }
 .wrapper .content-wrapper .tabs {
     height: 450px;

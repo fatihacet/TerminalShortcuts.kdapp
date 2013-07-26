@@ -1,4 +1,4 @@
-/* Compiled by kdc on Fri Jul 05 2013 05:56:53 GMT+0000 (UTC) */
+/* Compiled by kdc on Fri Jul 26 2013 20:32:42 GMT+0000 (UTC) */
 (function() {
 /* KDAPP STARTS */
 /* BLOCK STARTS: /home/stefanbc/Applications/TerminalShortcuts.kdapp/index.coffee */
@@ -10,23 +10,12 @@ MainView = (function(_super) {
   __extends(MainView, _super);
 
   function MainView() {
-    var _this = this;
+    var apacheTab, apacheView, button_1, button_2, button_3, button_4, button_5, button_6, miscTab, miscView, phpTab, phpView,
+      _this = this;
     MainView.__super__.constructor.apply(this, arguments);
     this.header = new KDHeaderView({
       type: "big",
       title: "Terminal Shortcuts"
-    });
-    this.subtitle_1 = new KDHeaderView({
-      type: "medium",
-      title: "Apache Shortcuts"
-    });
-    this.subtitle_2 = new KDHeaderView({
-      type: "medium",
-      title: "PHP"
-    });
-    this.subtitle_3 = new KDHeaderView({
-      type: "medium",
-      title: "Misc"
     });
     this.terminal = new WebTermView({
       delegate: this,
@@ -38,54 +27,6 @@ MainView = (function(_super) {
         return _this.runCommand(command);
       }
     });
-    this.button_1 = new KDButtonView({
-      title: "Restart Apache Server",
-      callback: function() {
-        var command;
-        command = "sudo service apache2 restart";
-        return _this.runCommand(command);
-      }
-    });
-    this.button_2 = new KDButtonView({
-      title: "Apache Error Log",
-      callback: function() {
-        var command;
-        command = "sudo tail -f /var/log/apache2/error.log";
-        return _this.runCommand(command);
-      }
-    });
-    this.button_3 = new KDButtonView({
-      title: "Edit Apache Config",
-      callback: function() {
-        var command;
-        command = "sudo nano /etc/apache2/sites-enabled/default";
-        return _this.runCommand(command);
-      }
-    });
-    this.button_4 = new KDButtonView({
-      title: "Enable mod_rewrite",
-      callback: function() {
-        var command;
-        command = "sudo a2enmod rewrite";
-        return _this.runCommand(command);
-      }
-    });
-    this.button_5 = new KDButtonView({
-      title: "Enable mail() function",
-      callback: function() {
-        var command;
-        command = "sudo apt-get install sendmail; sudo sendmailconfig";
-        return _this.runCommand(command);
-      }
-    });
-    this.button_6 = new KDButtonView({
-      title: "Check Syslog",
-      callback: function() {
-        var command;
-        command = "sudo tail -f /var/log/syslog";
-        return _this.runCommand(command);
-      }
-    });
     this.button_clear = new KDButtonView({
       title: "Clear Terminal",
       callback: function() {
@@ -94,6 +35,102 @@ MainView = (function(_super) {
         return _this.runCommand(command);
       }
     });
+    this.button_large = new KDOnOffSwitch({
+      defaultValue: true,
+      title: "Small terminal",
+      size: "medium",
+      cssClass: "terminal-switch",
+      callback: function(state) {
+        if (state) {
+          return _this.TabView.show(_this.terminal.unsetClass("terminal-large"));
+        } else {
+          return _this.TabView.hide(_this.terminal.setClass("terminal-large"));
+        }
+      }
+    });
+    button_1 = new KDButtonView({
+      title: "Restart Apache Server",
+      callback: function() {
+        var command;
+        command = "sudo service apache2 restart";
+        return _this.runCommand(command);
+      }
+    });
+    button_2 = new KDButtonView({
+      title: "Apache Error Log",
+      callback: function() {
+        var command;
+        command = "sudo tail -f /var/log/apache2/error.log";
+        return _this.runCommand(command);
+      }
+    });
+    button_3 = new KDButtonView({
+      title: "Edit Apache Config",
+      callback: function() {
+        var command;
+        command = "sudo nano /etc/apache2/sites-enabled/default";
+        return _this.runCommand(command);
+      }
+    });
+    button_4 = new KDButtonView({
+      title: "Enable mod_rewrite",
+      callback: function() {
+        var command;
+        command = "sudo a2enmod rewrite";
+        return _this.runCommand(command);
+      }
+    });
+    button_5 = new KDButtonView({
+      title: "Enable mail() function",
+      callback: function() {
+        var command;
+        command = "sudo apt-get install sendmail; sudo sendmailconfig";
+        return _this.runCommand(command);
+      }
+    });
+    button_6 = new KDButtonView({
+      title: "Check Syslog",
+      callback: function() {
+        var command;
+        command = "sudo tail -f /var/log/syslog";
+        return _this.runCommand(command);
+      }
+    });
+    this.TabView = new KDTabView({
+      cssClass: "tabs",
+      hideHandleCloseIcons: true
+    });
+    this.TabView.addPane(apacheTab = new KDTabPaneView({
+      name: "Apache",
+      cssClass: "apache-tab"
+    }));
+    this.TabView.addPane(phpTab = new KDTabPaneView({
+      name: "PHP",
+      cssClass: "php-tab"
+    }));
+    this.TabView.addPane(miscTab = new KDTabPaneView({
+      name: "Misc",
+      cssClass: "misc-tab"
+    }));
+    apacheTab.addSubView(apacheView = new KDView({
+      cssClass: "apache-tab-wrapper",
+      partial: "<div class='tab-header'>Common Apache shortcuts.</div>"
+    }));
+    apacheView.addSubView(button_1);
+    apacheView.addSubView(button_2);
+    apacheView.addSubView(button_3);
+    apacheView.addSubView(button_4);
+    phpTab.addSubView(phpView = new KDView({
+      cssClass: "php-tab-wrapper",
+      partial: "<div class='tab-header'>Common PHP shortcuts.</div>"
+    }));
+    phpView.addSubView(button_5);
+    miscTab.addSubView(miscView = new KDView({
+      cssClass: "misc-tab-wrapper",
+      partial: "<div class='tab-header'>Misc shortcuts.e</div>"
+    }));
+    miscView.addSubView(button_6);
+    this.TabView.showPaneByIndex(0);
   }
 
   MainView.prototype.runCommand = function(command) {
@@ -113,7 +150,7 @@ MainView = (function(_super) {
   };
 
   MainView.prototype.pistachio = function() {
-    return "{{> this.header}}\n<div class=\"spacer\">\n    You can use the following common shortcuts. For suggestions and bug reports you can PM <a href=\"/stefanbc\">@stefanbc</a> or open up an issue on <a href=\"https://github.com/stefanbc/TerminalShortcuts.kdapp/issues\" target=\"_blank\">Github</a>.\n</div>\n<div class=\"content-wrapper\">\n    <div class=\"left\">\n        <div class=\"spacer\">\n            <i class=\"notification\">Each shortcut needs root access.</i>\n        </div>\n        {{> this.subtitle_1}}\n        <br><br>\n        {{> this.button_1}}\n        {{> this.button_2}}\n        {{> this.button_3}}\n        <br><br>\n        {{> this.button_4}}\n        <br><br>\n        {{> this.subtitle_2}}\n        <br><br>\n        {{> this.button_5}}\n        <br><br>\n        {{> this.subtitle_3}}\n        <br><br>\n        {{> this.button_6}}\n    </div>\n    <div class=\"right\">\n        <div class=\"clear_button\">\n            {{> this.button_clear}}\n        </div>\n        <div class=\"terminal-wrapper\">\n            {{> this.terminal}}\n        </div>\n    </div>\n</div>";
+    return "<header>\n    {{> this.header}}\n    <div class=\"spacer\">\n        You can use the following common shortcuts. For suggestions and bug reports you can PM <a href=\"/stefanbc\">@stefanbc</a> or open up an issue on <a href=\"https://github.com/stefanbc/TerminalShortcuts.kdapp/issues\" target=\"_blank\">Github</a>.\n    </div>\n</header>\n<div class=\"content-wrapper\">\n    <div class=\"left\">\n        <div class=\"spacer\">\n            <i class=\"notification\">Each shortcut needs root access.</i>\n        </div>\n        {{> this.TabView}}\n    </div>\n    <div class=\"right\">\n        <div class=\"clear_button\">\n            {{> this.button_large}} {{> this.button_clear}}\n        </div>\n        <div class=\"terminal-wrapper\">\n            {{> this.terminal}}\n        </div>\n    </div>\n</div>";
   };
 
   MainView.prototype.viewAppended = function() {

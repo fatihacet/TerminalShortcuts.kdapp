@@ -1,50 +1,90 @@
 /* # Terminal Shortcuts app css */
 
 .wrapper  {
-  margin: 10px;
-  padding: 0 10px 10px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255,255,255,0.9);
-  border-radius: 3px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 3px;
 }
-
+.wrapper header {
+    background: #297AC5;
+    color: #fff;
+    padding: 30px;
+}
+.wrapper header h1 {
+    color: #fff;
+}
+.wrapper header a {
+    color: #e1e1e1;
+}
 .wrapper input {
-  margin: 20px 0;
-  background-color: #ccc !important;
+    margin: 20px 0;
+    background-color: #ccc !important;
 }
-
 .wrapper .content-wrapper {
-  display: block
+    display: block;
+    margin: 15px;
 }
-
+.wrapper .content-wrapper .tabs {
+    height: 450px;
+    overflow: hidden;
+}
+.wrapper .content-wrapper .tabs .kdtabhandlecontainer {
+    background: none;
+}
+.wrapper .content-wrapper .tabs .kdtabhandlecontainer .kdtabhandle {
+    color: #297AC5;
+}
+.wrapper .content-wrapper .tabs .apache-tab-wrapper .tab-header,
+.wrapper .content-wrapper .tabs .php-tab-wrapper .tab-header,
+.wrapper .content-wrapper .tabs .misc-tab-wrapper .tab-header {
+    margin: 15px 0;
+}
+.wrapper .content-wrapper .tabs .apache-tab-wrapper button,
+.wrapper .content-wrapper .tabs .php-tab-wrapper button,
+.wrapper .content-wrapper .tabs .misc-tab-wrapper button {
+    width: 45%;
+    margin: 10px;
+    height: 30px;
+}
 .wrapper .notification {
-  color: #ff0000;
+    color: #ff0000;
 }
-
 .wrapper .spacer {
-  margin: 5px 0;
+    margin: 5px 0;
 }
-
 .wrapper .content-wrapper .left,
 .wrapper .content-wrapper .right {
-  float: left;
-  width: 45%;
-  height: 450px;
-  display: block;
-  overflow: hidden;
+    float: left;
+    width: 48%;
+    height: 450px;
+    display: block;
+    overflow: hidden;
 }
 .wrapper .content-wrapper .right {
-  margin-left: 20px;
+    margin-left: 20px;
 }
-
 .wrapper .content-wrapper .right .clear_button {
-  display: block;
-  overflow: hidden;
-  margin: 10px 0;
-  text-align: right;
+    display: block;
+    overflow: hidden;
+    margin: 10px 0;
+    text-align: right;
 }
-
+.wrapper .content-wrapper .right .terminal-switch {
+    float: left;
+}
 .wrapper .content-wrapper .right .terminal-wrapper {
-  height: 90%;
+    height: 90%;
+}
+.terminal-large {
+    position: absolute;
+    left: 15px;
+    width: 960px;
+    height: 100%;
+    max-height: 405px;
+}
+.wrapper .content-wrapper .right .terminal-wrapper .webterm .console {
+    background-image: none;
+    color: #000;
+    padding: 0 10px;
 }

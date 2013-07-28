@@ -7,12 +7,17 @@
     border-radius: 3px;
 }
 .wrapper header {
-    background: #297AC5;
     color: #fff;
     padding: 30px;
+    background-image: url('grid.png');
+    background-position: 50% 0;
+    background-color: #297AC5;
+    background-repeat: repeat-x;
 }
 .wrapper header h1 {
     color: #fff;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px #222;
 }
 .wrapper header a {
     color: #e1e1e1;
@@ -23,8 +28,9 @@
 }
 .wrapper .content-wrapper {
     display: block;
-    margin: 15px;
+    padding: 15px;
     overflow: hidden;
+    background: #fafafa;
 }
 .wrapper .content-wrapper .tabs {
     height: 450px;
@@ -47,6 +53,8 @@
     width: 45%;
     margin: 10px;
     height: 30px;
+    background: #fff;
+    font-weight: normal;
 }
 .wrapper .notification {
     color: #ff0000;

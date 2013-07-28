@@ -39,12 +39,13 @@ class MainView extends JView
             callback   : =>
                 command = "sudo service apache2 restart"
                 @runCommand command
-
+                
         button_2 = new KDButtonView
             title      : "Apache Error Log"
             callback   : =>
                 command = "sudo tail -f /var/log/apache2/error.log"
                 @runCommand command
+                @terminal.getFocus
                 
         button_3 = new KDButtonView
             title      : "Edit Apache Config"
@@ -126,7 +127,8 @@ class MainView extends JView
         <header>
             {{> @header}}
             <div class="spacer">
-                You can use the following common shortcuts. For suggestions and bug reports you can PM <a href="/stefanbc">@stefanbc</a> or open up an issue on <a href="https://github.com/stefanbc/TerminalShortcuts.kdapp/issues" target="_blank">Github</a>.
+                If you are not familiar with the Terminal interface you can use this common shortcuts to get the results you want.<br>
+                <i>For suggestions and bug reports you can PM <a href="/stefanbc">@stefanbc</a> or open up an issue on <a href="https://github.com/stefanbc/TerminalShortcuts.kdapp/issues" target="_blank">Github</a>.</i>
             </div>
         </header>
         <div class="content-wrapper">

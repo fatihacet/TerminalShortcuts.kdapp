@@ -1,4 +1,4 @@
-/* Compiled by kdc on Fri Jul 26 2013 20:32:42 GMT+0000 (UTC) */
+/* Compiled by kdc on Sun Jul 28 2013 17:11:20 GMT+0000 (UTC) */
 (function() {
 /* KDAPP STARTS */
 /* BLOCK STARTS: /home/stefanbc/Applications/TerminalShortcuts.kdapp/index.coffee */
@@ -61,7 +61,8 @@ MainView = (function(_super) {
       callback: function() {
         var command;
         command = "sudo tail -f /var/log/apache2/error.log";
-        return _this.runCommand(command);
+        _this.runCommand(command);
+        return _this.terminal.getFocus;
       }
     });
     button_3 = new KDButtonView({
@@ -150,7 +151,7 @@ MainView = (function(_super) {
   };
 
   MainView.prototype.pistachio = function() {
-    return "<header>\n    {{> this.header}}\n    <div class=\"spacer\">\n        You can use the following common shortcuts. For suggestions and bug reports you can PM <a href=\"/stefanbc\">@stefanbc</a> or open up an issue on <a href=\"https://github.com/stefanbc/TerminalShortcuts.kdapp/issues\" target=\"_blank\">Github</a>.\n    </div>\n</header>\n<div class=\"content-wrapper\">\n    <div class=\"left\">\n        <div class=\"spacer\">\n            <i class=\"notification\">Each shortcut needs root access.</i>\n        </div>\n        {{> this.TabView}}\n    </div>\n    <div class=\"right\">\n        <div class=\"clear_button\">\n            {{> this.button_large}} {{> this.button_clear}}\n        </div>\n        <div class=\"terminal-wrapper\">\n            {{> this.terminal}}\n        </div>\n    </div>\n</div>";
+    return "<header>\n    {{> this.header}}\n    <div class=\"spacer\">\n        If you are not familiar with the Terminal interface you can use this common shortcuts to get the results you want.<br>\n        <i>For suggestions and bug reports you can PM <a href=\"/stefanbc\">@stefanbc</a> or open up an issue on <a href=\"https://github.com/stefanbc/TerminalShortcuts.kdapp/issues\" target=\"_blank\">Github</a>.</i>\n    </div>\n</header>\n<div class=\"content-wrapper\">\n    <div class=\"left\">\n        <div class=\"spacer\">\n            <i class=\"notification\">Each shortcut needs root access.</i>\n        </div>\n        {{> this.TabView}}\n    </div>\n    <div class=\"right\">\n        <div class=\"clear_button\">\n            {{> this.button_large}} {{> this.button_clear}}\n        </div>\n        <div class=\"terminal-wrapper\">\n            {{> this.terminal}}\n        </div>\n    </div>\n</div>";
   };
 
   MainView.prototype.viewAppended = function() {

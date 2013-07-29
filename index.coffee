@@ -13,6 +13,7 @@ class MainView extends JView
         @terminal = new WebTermView
             delegate : @
             cssClass : "webterm"
+            advancedSettings: no
             
         @terminal.on "WebTermConnected", (@remote) =>
             @runCommand command if command
@@ -45,7 +46,7 @@ class MainView extends JView
             callback   : =>
                 command = "sudo tail -f /var/log/apache2/error.log"
                 @runCommand command
-                @terminal.getFocus
+                @terminal.terminal.setFocused()
                 
         button_3 = new KDButtonView
             title      : "Edit Apache Config"

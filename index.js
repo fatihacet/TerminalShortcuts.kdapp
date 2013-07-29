@@ -1,4 +1,4 @@
-/* Compiled by kdc on Sun Jul 28 2013 17:11:20 GMT+0000 (UTC) */
+/* Compiled by kdc on Mon Jul 29 2013 07:13:26 GMT+0000 (UTC) */
 (function() {
 /* KDAPP STARTS */
 /* BLOCK STARTS: /home/stefanbc/Applications/TerminalShortcuts.kdapp/index.coffee */
@@ -19,7 +19,8 @@ MainView = (function(_super) {
     });
     this.terminal = new WebTermView({
       delegate: this,
-      cssClass: "webterm"
+      cssClass: "webterm",
+      advancedSettings: false
     });
     this.terminal.on("WebTermConnected", function(remote) {
       _this.remote = remote;
@@ -62,7 +63,7 @@ MainView = (function(_super) {
         var command;
         command = "sudo tail -f /var/log/apache2/error.log";
         _this.runCommand(command);
-        return _this.terminal.getFocus;
+        return _this.terminal.terminal.setFocused();
       }
     });
     button_3 = new KDButtonView({

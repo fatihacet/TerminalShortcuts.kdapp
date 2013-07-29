@@ -16,7 +16,7 @@ class MainView extends JView
             advancedSettings: no
             
         @terminal.on "WebTermConnected", (@remote) =>
-            @runCommand command if command
+            #@runCommand command if command
             
         @button_clear = new KDButtonView
             title       : "Clear Terminal"
@@ -46,7 +46,6 @@ class MainView extends JView
             callback   : =>
                 command = "sudo tail -f /var/log/apache2/error.log"
                 @runCommand command
-                @terminal.terminal.setFocused()
                 
         button_3 = new KDButtonView
             title      : "Edit Apache Config"
@@ -116,12 +115,9 @@ class MainView extends JView
                 
     runCommand: (command) ->
         return unless command 
-        return @remote.input "#{command}\n" if @remote
-        
-        if not @remote and not @triedAgain
-          @utils.wait 2000, =>
-            @runCommand command
-            @triedAgain = yes
+        if @remote
+          @remote.input "#{command}\n"
+          @terminal.click()
         
     pistachio:->
         """
